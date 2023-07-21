@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// TODO: Navegar para Settings
-/// Implementar eventos
+/// TODO: Implementar navegação
+/// TODO: Implementar eventos
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({Key? key}) : super(key: key);
 

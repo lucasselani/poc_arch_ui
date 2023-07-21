@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:poc_ui_arch/app/domain/get_item_use_case.dart';
 
-/// TODO: Navegar para Details
-/// Implementar eventos
-/// Implementar click no item
+/// TODO: Implementar eventos
+/// TODO: Implementar click no item, navegar para Details via namedRoute
 class ListWidget extends StatelessWidget {
   final List<Item> items;
 

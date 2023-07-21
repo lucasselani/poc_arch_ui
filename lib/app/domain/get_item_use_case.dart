@@ -1,7 +1,10 @@
 import 'dart:math';
 
 class GetItemUseCase {
-  List<Item> get({int length = 20}) => List.generate(
+  Future<List<Item>?> get({int length = 20}) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    if (Random().nextBool()) {
+      return List.generate(
         length,
         (index) => Item(
           'Item $index',
@@ -9,6 +12,9 @@ class GetItemUseCase {
           _randomizeIsOn(),
         ),
       );
+    }
+    return null;
+  }
 
   bool _randomizeIsOn() => Random().nextBool();
 

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 
 /// TODO: Filtrar lista
-/// Enviar eventos
-/// Tirar strings da tela
+/// TODO: Enviar eventos
+/// TODO: Tirar strings da tela
 class SwitchWidget extends StatelessWidget {
   final bool isOn;
+  final void Function(bool) onChanged;
 
-  const SwitchWidget({super.key, required this.isOn});
+  const SwitchWidget({
+    super.key,
+    required this.isOn,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class SwitchWidget extends StatelessWidget {
         child: Row(
           children: [
             const Expanded(child: Text('Filtrar desabilitados')),
-            Switch(value: isOn, onChanged: (value) {}),
+            Switch(value: isOn, onChanged: onChanged),
           ],
         ),
       ),

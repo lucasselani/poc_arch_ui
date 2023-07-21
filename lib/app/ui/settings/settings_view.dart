@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// TODO: Tirar strings da tela
-/// Tirar lógica da tela
+/// TODO: Tirar lógica da tela
 class SettingsView extends StatelessWidget {
   const SettingsView({Key? key}) : super(key: key);
 
