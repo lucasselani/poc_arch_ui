@@ -8,30 +8,16 @@ abstract class HomeState {
 }
 
 class SuccessHomeState extends HomeState {
-  List<Item> filteredItems;
-  final List<Item> allItems;
+  final List<Item>? allItems;
   final Header header;
-  bool isFilterOn;
+  final bool isFilterOn;
 
   SuccessHomeState(
     super.appBarTitle, {
     required this.allItems,
     required this.header,
     required this.isFilterOn,
-    required this.filteredItems,
   });
-
-  SuccessHomeState filter({
-    List<Item>? filteredItems,
-    bool? isFilterOn,
-  }) =>
-      SuccessHomeState(
-        appBarTitle,
-        allItems: allItems,
-        header: header,
-        isFilterOn: isFilterOn ?? this.isFilterOn,
-        filteredItems: filteredItems ?? this.filteredItems,
-      );
 }
 
 class ErrorHomeState extends HomeState {

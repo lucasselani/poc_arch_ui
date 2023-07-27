@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 /// TODO: Fazer lógica de controlar esse card fora da main
 /// TODO: Adicionar FF para esconder/exibir
 /// TODO: Adicionar navegação

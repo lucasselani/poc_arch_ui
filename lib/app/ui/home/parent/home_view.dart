@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:poc_ui_arch/app/ui/home/child/header/header_widget.dart';
+import 'package:poc_ui_arch/app/ui/home/child/list/list_component.dart';
 import 'package:poc_ui_arch/app/ui/home/parent/home_controller.dart';
 import 'package:poc_ui_arch/app/ui/home/parent/home_state.dart';
 import 'package:poc_ui_arch/third_party/auto/auto_card.dart';
 import 'package:poc_ui_arch/third_party/docs/docs_card.dart';
 
 import '../child/button/button_widget.dart';
-import '../child/list/list_widget.dart';
-import '../child/switch_button/switch_widget.dart';
 
 /// Delegar o controle para cada Widget ou concentrar na controller?
 /// TODO: Implementar pull to refresh
@@ -89,11 +88,9 @@ class _SuccessView extends StatelessWidget {
               children: [
                 const SizedBox(height: 16),
                 HeaderWidget(header: state.header),
-                _displayListIfNotEmpty(),
-                const SizedBox(height: 16),
-                const AutoCard(),
-                const SizedBox(height: 16),
-                const DocsCard(),
+                ListComponent(
+                    isOn: state.isFilterOn, items: state.allItems ?? []),
+                _displayServices(),
                 const SizedBox(height: 40),
               ],
             ),
@@ -101,17 +98,18 @@ class _SuccessView extends StatelessWidget {
         ),
       );
 
-  Widget _displayListIfNotEmpty() => state.filteredItems.isEmpty
-      ? const SizedBox.shrink()
-      : Column(
-          children: [
-            const SizedBox(height: 16),
-            SwitchWidget(
-              isOn: state.isFilterOn,
-              onChanged: controller.onFilterChanged,
-            ),
-            const SizedBox(height: 16),
-            ListWidget(items: state.filteredItems),
-          ],
-        );
+  Widget _displayServices() => const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 16),
+          Text(
+            'Serviços',
+            style: TextStyle(fontSize: 18),
+          ),
+          SizedBox(height: 16),
+          AutoCard(),
+          SizedBox(height: 16),
+          DocsCard(),
+        ],
+      );
 }
