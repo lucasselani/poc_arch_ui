@@ -89,7 +89,11 @@ class _SuccessView extends StatelessWidget {
                 const SizedBox(height: 16),
                 HeaderWidget(header: state.header),
                 ListComponent(
-                    isOn: state.isFilterOn, items: state.allItems ?? []),
+                    items: state.allItems ?? [],
+                    onFilterChanged: (isOn) {
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(SnackBar(content: Text('$isOn')));
+                    }),
                 _displayServices(),
                 const SizedBox(height: 40),
               ],

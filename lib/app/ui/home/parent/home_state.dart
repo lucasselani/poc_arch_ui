@@ -10,13 +10,11 @@ abstract class HomeState {
 class SuccessHomeState extends HomeState {
   final List<Item>? allItems;
   final Header header;
-  final bool isFilterOn;
 
   SuccessHomeState(
     super.appBarTitle, {
     required this.allItems,
     required this.header,
-    required this.isFilterOn,
   });
 }
 

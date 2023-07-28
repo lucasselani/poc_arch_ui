@@ -31,7 +31,6 @@ class HomeController {
       'Home',
       allItems: allItems,
       header: header,
-      isFilterOn: false,
     );
   }
 }

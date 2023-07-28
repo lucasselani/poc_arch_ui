@@ -24,6 +24,7 @@ class GetItemUseCase {
 class Item {
   final String title;
   final String description;
+  final String imageUrl;
   final bool isOn;
 
   Item(this.title, this.description, this.isOn);

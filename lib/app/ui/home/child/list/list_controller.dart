@@ -4,18 +4,14 @@ import 'package:poc_ui_arch/app/ui/home/child/list/list_state.dart';
 import 'package:poc_ui_arch/core/analytics.dart';
 
 class ListController {
-  late final ValueNotifier<ListState> notifier;
+  final ValueNotifier<ListState> notifier = ValueNotifier(ListEmptyState());
 
-  ListController(List<Item> items, bool isOn) {
-    _initialize(items, isOn);
-  }
-
-  void _initialize(List<Item> items, bool isOn) {
+  init(List<Item> items) {
     if (items.isEmpty) {
-      notifier = ValueNotifier(ListEmptyState());
+      notifier.value = ListEmptyState();
     } else {
-      notifier = ValueNotifier(
-          ListSuccessState(isOn, items, items, 'Filtrar desabilitados'));
+      notifier.value =
+          ListSuccessState(false, items, items, 'Filtrar desabilitados');
     }
   }
 

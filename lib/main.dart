@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:poc_ui_arch/app/domain/get_item_use_case.dart';
 import 'package:poc_ui_arch/app/ui/details/details_view.dart';
+import 'package:poc_ui_arch/app/ui/home/child/list/list_controller.dart';
 import 'package:poc_ui_arch/app/ui/home/parent/home_view.dart';
 import 'package:poc_ui_arch/app/ui/settings/settings_view.dart';
 import 'package:poc_ui_arch/core/analytics.dart';
 
 void main() {
   Analytics.instance = AnalyticsImpl();
+  GetIt.I.registerFactory<ListController>(() => ListController());
   runApp(const MyApp());
 }
 
